@@ -9,7 +9,7 @@ import { PostComments } from '../PostComments/PostComments';
 import './PostDetails.scss';
 
 export const PostDetails = ({ selectedPostId }) => {
-  const [details, setDetails] = useState({});
+  const [post, setPost] = useState({});
   const [comments, setComments] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -21,7 +21,7 @@ export const PostDetails = ({ selectedPostId }) => {
   const loadDetails = async() => {
     const postDetails = await getPostDetails(selectedPostId);
 
-    setDetails(postDetails);
+    setPost(postDetails);
     setIsVisible(false);
   };
 
@@ -36,7 +36,7 @@ export const PostDetails = ({ selectedPostId }) => {
       <h2>Post details:</h2>
 
       <section className="PostDetails__post">
-        <p>{details.body}</p>
+        <p>{post.body}</p>
       </section>
 
       <section className="PostDetails__comments">

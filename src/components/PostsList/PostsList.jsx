@@ -10,15 +10,15 @@ export const PostsList = ({ selectedUserId, selectedPostId, selectPost }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    const loadPosts = async() => {
+      const loadedPosts = await getUserPosts(selectedUserId);
+
+      setPosts(loadedPosts);
+      setIsLoading(false);
+    };
+
     loadPosts();
   }, [selectedUserId]);
-
-  const loadPosts = async() => {
-    const loadedPosts = await getUserPosts(selectedUserId);
-
-    setPosts(loadedPosts);
-    setIsLoading(false);
-  };
 
   return (
     <div className="PostsList">

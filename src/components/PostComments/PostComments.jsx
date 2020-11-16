@@ -37,6 +37,7 @@ PostComments.propTypes = {
   comments: PropTypes.arrayOf(
     PropTypes.shape({
       body: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
   updateComments: PropTypes.func.isRequired,
